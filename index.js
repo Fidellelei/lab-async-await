@@ -1,35 +1,53 @@
+// Select the ul element
+const postList = document.getElementById("post-list");
+
+// Function to display posts
 function displayPosts(posts) {
-  const ul = document.getElementById("post-list");
+  // Clear existing posts
+  postList.innerHTML = "";
 
-  // IMPORTANT: prevent crash
-  if (!ul) return;
-
-  ul.innerHTML = "";
-
+  // Loop through posts
   posts.forEach(post => {
+    // Create li
     const li = document.createElement("li");
-    const h1 = document.createElement("h1");
-    const p = document.createElement("p");
 
-    h1.textContent = post.title;
-    p.textContent = post.body;
+    // Create h1
+    const title = document.createElement("h1");
+    title.textContent = post.title;
 
-    li.appendChild(h1);
-    li.appendChild(p);
-    ul.appendChild(li);
+    // Create p
+    const body = document.createElement("p");
+    body.textContent = post.body;
+
+    // Append h1 and p to li
+    li.appendChild(title);
+    li.appendChild(body);
+
+    // Append li to ul
+    postList.appendChild(li);
   });
 }
 
-async function fetchPosts() {
+// Async function to fetch posts
+async function getPosts() {
   try {
-    const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/posts"
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch posts");
+    }
+
     const posts = await response.json();
 
+    // Call displayPosts
     displayPosts(posts);
+
   } catch (error) {
-    console.error(error);
+    console.error("Error:", error);
   }
 }
 
-// DO NOT wrap in DOMContentLoaded
-fetchPosts();
+// Run function
+getPosts();
