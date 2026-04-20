@@ -1,25 +1,12 @@
-document.addEventListener("DOMContentLoaded", () => {
-  fetchPosts();
-});
-
 async function fetchPosts() {
-  try {
-    const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-    const posts = await response.json();
+  const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const posts = await response.json();
 
-    displayPosts(posts);
-  } catch (error) {
-    console.error(error);
-  }
+  displayPosts(posts);
 }
 
 function displayPosts(posts) {
   const ul = document.getElementById("post-list");
-
-  if (!ul) {
-    console.error("post-list not found");
-    return;
-  }
 
   ul.innerHTML = "";
 
@@ -36,3 +23,5 @@ function displayPosts(posts) {
     ul.appendChild(li);
   });
 }
+
+fetchPosts();
