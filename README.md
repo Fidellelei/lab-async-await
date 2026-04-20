@@ -1,42 +1,70 @@
-# Lab: Bookstore Manager
+# Lab: Random Social Media Posts
 
 ## Introduction
 
-You are working for a social media website, they need to build functionality to display random posts to the user for a random tab they have. In order to do this they need you to access an external api to gather all the post then loop through and display those posts.
+This project is a simple social media feature that fetches and displays random posts from an external API. The goal is to retrieve post data and dynamically render it on the page using JavaScript, demonstrating the use of asynchronous programming with async/await.
 
 ## Challenge
-1. Access external api and 
-2. Display post 
-3. Use Async/await
 
-## Instructions
+1. Fetch data from an external API  
+2. Display posts dynamically on the webpage  
+3. Use async/await for asynchronous operations  
 
-1. **Fork and Clone the Repository:**
-   - Go to the provided GitHub repository link.
-   - Fork the repository to your GitHub account.
-   - Clone the forked repository to your local machine.
-   - Open the project in VSCode.
-   - Run `npm install` to install all necessary dependencies.
+## API Used
 
-2. **Fetch Data from an API**
-   - Using the fetch method fetch to https://jsonplaceholder.typicode.com/posts
+https://jsonplaceholder.typicode.com/posts
 
-3. **Display Posts**
-   - Create Function to Display Posts called `displayPosts()` 
-      - Pass in the array of posts
-      - Loop through the posts list, in the loop:
-         - Create an `li` element
-         - Create an `h1` element 
-            - Set textContent to the title of the post
-         - Create an `p` element
-            - Set textContent to the body of the post         
-         - Append h1 and p to li
-         - Append li to the ul
-            - ul has an id of `post-list`   
-   - Call `displayPosts()` after fetch
+## Features
 
-4. **Refactor with Async/Await**
-   - Create function to house fetch and apply async to function
-   - Apply await to fetch
+- Fetch posts using the Fetch API
+- Handle asynchronous operations with async/await
+- Dynamically create and display DOM elements
+- Display post title and body
+- Basic error handling using try/catch
 
+## How It Works
 
+- The application fetches posts from the API on page load
+- The response is converted into JSON format
+- A function `displayPosts()` loops through the data
+- Each post is displayed as:
+  - `h1` for the title
+  - `p` for the body
+  - wrapped inside an `li`
+- All posts are appended to the `ul#post-list`
+
+## Project Structure
+
+- `index.html` → Contains the UI structure
+- `index.js` → Handles API fetching and DOM manipulation
+- `style.css` → Basic styling (if provided)
+
+## Code Features
+
+- Async/Await for cleaner asynchronous code
+- Fetch API for external data retrieval
+- DOM manipulation using JavaScript
+- Separation of logic (fetch vs display)
+- Error handling with try/catch
+
+## Project Updates / Changes Made
+
+- Updated project description to match Random Social Media Posts functionality
+- Implemented API fetching using Fetch API
+- Refactored code using async/await for cleaner asynchronous handling
+- Created `displayPosts()` function to dynamically render posts
+- Added DOM manipulation using `li`, `h1`, and `p` elements
+- Implemented error handling using try/catch
+- Ensured posts render inside `ul#post-list`
+
+## Version Control
+
+This project was developed using Git for version control. Regular commits were made to track progress, manage updates, and ensure maintainability of the codebase.
+
+## Learning Outcomes
+
+- Understanding of asynchronous JavaScript
+- Practical use of Fetch API
+- DOM manipulation techniques
+- Error handling in async operations
+- Basic project documentation and maintenance practices
